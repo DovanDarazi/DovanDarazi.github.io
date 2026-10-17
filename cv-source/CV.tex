@@ -1,0 +1,623 @@
+\documentclass[11pt]{article}
+
+% ============================================================
+% Packages and page layout
+% ============================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    left=0.7in,
+    right=0.7in,
+    top=0.5in,
+    bottom=0.5in
+]{geometry}
+
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{hyperref}
+\usepackage{qrcode}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue,
+    anchorcolor=blue
+}
+
+\urlstyle{same}
+\pagenumbering{gobble}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+
+\setlist[itemize]{
+    leftmargin=1.4em,
+    topsep=4pt,
+    itemsep=3pt,
+    parsep=2pt,
+    partopsep=0pt
+}
+
+% ============================================================
+% Reusable commands
+% ============================================================
+
+% Section heading
+\newcommand{\cvsection}[1]{%
+    \par\addvspace{14pt}%
+    \Needspace{5\baselineskip}%
+    {\large\bfseries #1\par}%
+    \vspace{4pt}%
+    \hrule
+    \vspace{8pt}%
+}
+
+% Title on the left; date on the far right.
+% Long titles wrap without overlapping the date.
+\newcommand{\cvheading}[2]{%
+    \par
+    \Needspace{4\baselineskip}%
+    \noindent
+    \begin{tabularx}{\linewidth}{%
+        @{}
+        >{\raggedright\arraybackslash}X
+        >{\raggedleft\arraybackslash}p{1.65in}
+        @{}
+    }
+        \textbf{#1} & #2
+    \end{tabularx}\par
+}
+
+% Entry with title, date, description, and itemize contents.
+% Usage:
+% \cventry{Title}{Date}{Description}{\item ... \item ...}
+\newcommand{\cventry}[4]{%
+    \cvheading{#1}{#2}%
+    \if\relax\detokenize{#3}\relax
+    \else
+        \smallskip
+        #3\par
+    \fi
+    \begin{itemize}
+        #4
+    \end{itemize}
+    \addvspace{6pt}%
+}
+
+% Entry without bullet points.
+% Usage: \cvplainentry{Title}{Date}{Description}
+\newcommand{\cvplainentry}[3]{%
+    \cvheading{#1}{#2}%
+    \if\relax\detokenize{#3}\relax
+    \else
+        \smallskip
+        #3\par
+    \fi
+    \addvspace{8pt}%
+}
+
+% Study-topic category and contents
+\newcommand{\StudyTopics}[2]{%
+    \par
+    \begin{tabularx}{\linewidth}{%
+        @{}
+        >{\raggedright\arraybackslash}p{0.18\linewidth}
+        >{\raggedright\arraybackslash}X
+        @{}
+    }
+        \textbf{#1} & #2
+    \end{tabularx}\par
+    \addvspace{6pt}%
+}
+
+% ============================================================
+% Document
+% ============================================================
+
+\begin{document}
+
+% ============================================================
+% Contact information
+% ============================================================
+
+\noindent
+\begin{minipage}[c]{0.15\textwidth}
+    \hfill
+\end{minipage}%
+\begin{minipage}[c]{0.70\textwidth}
+    \centering
+    {\LARGE\bfseries Dovan Darazi\par}
+    \vspace{5pt}
+    Beirut-Lebanon $|$ (+961) 78 896712\par
+    \vspace{3pt}
+    \href{mailto:dovan_darazi@outlook.com}
+         {\textcolor{black}{dovan\_darazi@outlook.com}}\par
+\end{minipage}%
+\begin{minipage}[c]{0.15\textwidth}
+    \raggedleft
+    \qrcode[height=1.5cm]{https://dovandarazi.github.io/}
+\end{minipage}
+
+% ============================================================
+% Research interests
+% ============================================================
+
+\cvsection{RESEARCH INTERESTS}
+
+High Energy Physics: Theory and Computational/Experimental,
+Astroparticle Physics, Early Universe Physics, Dark Matter
+Physics, Cosmology, General Relativity.
+
+% ============================================================
+% Academic history
+% ============================================================
+
+\cvsection{ACADEMIC HISTORY}
+
+\cvplainentry
+{American University of Beirut}
+{Jan 2025 -- Present}
+{%
+    \textbf{Masters of Science in Physics}\par
+    \smallskip
+    Electives: Quantum Field Theory, Advanced Mathematical Methods
+}
+
+\cvplainentry
+{Lebanese University, Faculty of Sciences II}
+{Oct 2021 -- Jul 2024}
+{%
+    \textbf{Bachelor of Science in Physics}\par
+    \smallskip
+    \textbf{GPA:} 3.6 (passing grade 60\%)\par
+    \textbf{Rank:} first year: 1/17; second year: 1/3;
+    third year: 1/1\par
+    \smallskip
+    Elective courses: Waves and vibrations, Fluid mechanics,
+    Classical Field Theory, Laser Physics, Thermal Transfer,
+    Material Science, Molecular Physics, Medical Imaging
+}
+
+% ============================================================
+% Research experience
+% ============================================================
+
+\cvsection{RESEARCH EXPERIENCE}
+\cventry
+{Master's Thesis: Investigating Baryogenesis through B-Meson Decays}
+{May 2026 -- Present}
+{American University of Beirut --- BaBar data analysis with Dr. Racha Cheaib}
+{
+    \item Investigating a possible mechanism for baryogenesis through B-meson decays involving a $\Xi_c^{+}$ baryon and a dark matter particle.
+    \item Developing an analysis using BaBar data to search for this decay signature and explore its potential connection to the matter--antimatter asymmetry of the Universe.
+}
+
+
+\cventry
+{Research assistant, American University of Beirut (AUB)}
+{Jun 2025 -- Oct 2025}
+{Laboratory for Plasma and Fluid Dynamics}
+{%
+    \item Designed, built, and tested an improved divertor model
+    for magnetic confinement nuclear fusion devices aimed at
+    filtering high-energy debris within the plasma. The design
+    replaces conventional solid components with a flowing liquid
+    metal system capable of self-healing after repeated particle
+    impacts, significantly reducing material degradation and
+    maintenance requirements. The system captures and removes
+    debris from the plasma, filters it through the liquid medium,
+    and recirculates the purified material back into the divertor,
+    enhancing durability and operational efficiency.
+}
+
+\cventry
+{Research assistant, American University of Beirut (AUB)}
+{Sep 2023 -- Oct 2025}
+{Laboratory for Plasma and Fluid Dynamics}
+{%
+    \item Project lead on developing a high-speed stereoscopic
+    diagnostics device in order to detect and identify UFOs,
+    Flakes and Dust particles in the plasma flow of a magnetic
+    confinement nuclear fusion reactor. The objective of this
+    project is to determine particles' sizes as well as their
+    positions in three dimensions and their velocities in
+    component form. This data plays a pivotal role in informing
+    the necessary adjustments to the input parameters of the
+    device, enabling us to anticipate and mitigate potential
+    disruptions to the plasma flow with greater precision.
+
+    \item \textbf{Access The Project Documents:}
+    \href{https://dovandarazi.github.io/\#professional-experience}
+         {\textbf{here}}
+}
+
+\cventry
+{Intern, Lebanese American University (LAU)}
+{Jul 2023 -- Sep 2023}
+{}
+{%
+    \item Assisted in data collection, organization, and analysis
+    for a Research project on the water-energy-food nexus studying
+    the impact of the Lebanese economic and energy crisis on
+    water security. Worked on finalizing the paper for publication.
+}
+
+% ============================================================
+% Publications and presentations
+% ============================================================
+
+\cvsection{PUBLICATIONS AND PRESENTATIONS}
+
+\textbf{Publications:}
+\href{https://scholar.google.com/citations?hl=en&user=SUrLchwAAAAJ}
+     {Google Scholar}
+
+\begin{itemize}
+    \item
+    \href{https://doi.org/10.2166/aqua.2024.329}
+         {Navigating the water--energy nexus amidst the Lebanese
+          economic crisis}
+\end{itemize}
+
+\smallskip
+\textbf{Presentations}
+
+\begin{itemize}
+    \item Presented my project on imaging disruptions in magnetic
+    confinement fusion devices at the first MENA region plasma
+    fusion physics (MPFu) conference in Gammarth, Tunisia, as the
+    youngest presenter.
+\end{itemize}
+
+% ============================================================
+% Academic awards
+% ============================================================
+
+\cvsection{ACADEMIC AWARDS}
+
+\cvplainentry
+{Graduate Fellowship and Assistantship Program}
+{Jan 2025 -- Present}
+{American University of Beirut --- Beirut, Lebanon}
+
+% ============================================================
+% Teaching and mentoring experience
+% ============================================================
+
+\cvsection{TEACHING AND MENTORING EXPERIENCE}
+
+\cventry
+{Teaching Assistant, American University of Beirut (AUB)}
+{Jan 2025 -- Present}
+{Teaching Physics labs for engineers and premeds
+(PHYS 211L \& PHYS 206L)}
+{%
+    \item My duties as a TA were: Deliver a lecture on how to do
+    the experiment, guide and assist the students while they're
+    doing the experiment, correct reports that the students submit
+    for each experiment, Design and correct quizzes that test the
+    students' preparation, have office hours for followups,
+    questions, and inquiry, correct final exams along with other
+    teaching assistants.
+}
+
+\cventry
+{Particle Physics Summer School Instructor and Mentor}
+{Jul 2026 -- Aug 2026}
+{Summer Research Experience Program (SREP): Analyzing LHCb Data}
+{%
+    \item Mentored a group of high school students, teaching the
+    fundamentals of particle physics, detector physics, Python
+    programming, and large-scale data analysis.
+
+    \item Guided students in analyzing LHCb B-meson decay data,
+    including particle identification and developing code to
+    reconstruct specified decay channels using charge and
+    four-momentum conservation.
+
+    \item Supervised the selection and optimization of analysis
+    cuts by evaluating the trade-off between efficiency and purity,
+    culminating in a measurement of the asymmetry between B$^{+}$
+    and B$^{-}$ decays.
+
+    \item Supported students in presenting their methods and
+    findings to fellow participants and physics faculty at the
+    conclusion of the program.
+}
+
+\cventry
+{Particle Physics Summer School Instructor and Mentor}
+{Jul 2026 -- Aug 2026}
+{Summer Research Experience Program (SREP):
+Designing a Dark Photon Detector}
+{%
+    \item Mentored a group of high school students, teaching the
+    fundamentals of particle physics, detector physics, Python
+    programming, and large-scale data analysis.
+
+    \item Guided students in exploring different types of particle
+    detectors and their operating principles, applying this
+    knowledge to develop a conceptual detector design for a
+    research objective of their choice.
+
+    \item Supervised the team's development of a conceptual
+    detector designed to search for dark photons.
+}
+
+% ============================================================
+% Technical skills
+% ============================================================
+
+\cvsection{TECHNICAL SKILLS}
+
+\noindent
+\begin{tabularx}{\linewidth}{%
+    @{}
+    >{\bfseries\raggedright\arraybackslash}X
+    l
+    >{\bfseries\raggedright\arraybackslash}X
+    l
+    @{}
+}
+    Python & Advanced
+        & \LaTeX & Intermediate \\[4pt]
+    ROOT & Intermediate
+        & OriginLab & Intermediate \\[4pt]
+    C++ & Intermediate
+        & AutoCAD & Intermediate \\[4pt]
+    Rust & Intermediate
+        & Inventor & Intermediate \\[4pt]
+    MATLAB & Intermediate
+        & Blender & Beginner \\[4pt]
+    Linux & Intermediate
+        & COMSOL Multiphysics & Beginner \\[4pt]
+    SQL & Beginner
+        & Raspberry Pi & Beginner
+\end{tabularx}
+
+% ============================================================
+% Projects
+% ============================================================
+
+\cvsection{PROJECTS}
+
+\cventry
+{Monte Carlo Simulation and Analysis of the Ising Model}
+{Apr 2025 -- Jun 2025}
+{Statistical Mechanics --- Final Course Project}
+{
+    \item Studied the Ising model and implemented a Monte Carlo simulation to investigate its statistical mechanical behavior.
+    \item Analyzed the simulation results alongside the theoretical description of the model as part of the course's final project.
+}
+
+
+\cventry
+{Investigating High-Efficiency Thermoelectric Metals
+for Integration with Hollow Blocks}
+{Dec 2024 -- Jan 2025}
+{Numerical Analysis II course, Lebanese University,
+Faculty of Sciences II, Department of Physics}
+{%
+    \item In this project, we aim to design an innovative system
+    for sustainable energy generation by leveraging the temperature
+    gradient between the interior and exterior of buildings.
+    Working as a team of two, we are researching thermoelectric
+    metals with high Seebeck coefficients for integration into
+    hollow blocks (bricks). Our goal is to identify materials that
+    are not only efficient in converting heat to electricity but
+    are also cost-effective and abundant, ensuring scalability
+    and accessibility for widespread use.
+
+    \par\smallskip
+    To achieve this, we are utilizing COMSOL Multiphysics to create
+    detailed simulations of the proposed device, enabling us to
+    model and optimize its performance under real-world conditions.
+    By combining advanced material analysis with cutting-edge
+    simulation tools, this project has the potential to pave the
+    way for practical applications of thermoelectric technology in
+    building materials, contributing to energy-efficient
+    infrastructure and renewable energy solutions.
+}
+
+
+\cventry
+{GOLEM Tokamak: Toroidal Field Experiment}
+{Summer 2024}
+{Virtually operated GOLEM tokamak, Czech Technical University in Prague}
+{
+    \item Investigated the impact of toroidal magnetic field strength on plasma stability and confinement by varying the toroidal field capacitor voltage.
+    \item Studied its effects on key plasma parameters, including plasma current, edge safety factor, discharge duration, and electron energy confinement time.
+}
+
+\cventry
+{Developing an Interactive Virtual Assistant Display}
+{Mar 2024 -- Jun 2024}
+{Open Laboratory, Lebanese University, Faculty of Sciences II,
+Department of Physics}
+{%
+    \item Developing a 3D interface for the laboratory's virtual
+    assistant using Blender, with the goal of enhancing user
+    interaction and visualization. The interface is designed to
+    be displayed on an anamorphic screen, providing a dynamic
+    and immersive visual experience. This project serves as a
+    foundation for creating a more advanced projection system,
+    aimed at improving display technologies for laboratory
+    applications and beyond.
+}
+
+\cventry
+{Studying the Barber pole effect in sucrose solution}
+{Oct 2023 -- Feb 2024}
+{Optics Laboratory Project, Lebanese University,
+Faculty of Sciences II}
+{%
+    \item As part of a student project supervised by a professor
+    at the Laboratory of Biomedical Imaging (LBMI), Lebanese
+    University, Faculty of Sciences II, our team conducted a series
+    of experiments to investigate the barber pole effect. The
+    project involved designing and performing experiments to
+    observe the phenomenon and collect relevant experimental data.
+
+    \par\smallskip
+    Through comprehensive data analysis, we validated the
+    theoretical concepts identified during the literature review,
+    demonstrating alignment between our findings and existing
+    research. The results were presented to the supervising
+    professor and peers, showcasing our approach, methodology,
+    and key insights. This project provided valuable hands-on
+    experience in experimental design, data analysis, and
+    effective scientific communication.
+}
+
+\cventry
+{Studying and Using a Prism Spectrometer Goniometer}
+{Oct 2023 -- Jan 2024}
+{Optics Laboratory Course, Lebanese University,
+Faculty of Sciences II}
+{%
+    \item Calibrated a non-digital spectrometer goniometer using a
+    mercury lamp to ensure accuracy in subsequent measurements.
+    The calibrated setup was utilized to determine the Balmer
+    spectra of a hydrogen lamp and calculate the Rydberg constant.
+
+    \par\smallskip
+    A theoretical geometrical optical analysis was conducted to
+    achieve the best fit for the measured data, with results
+    visualized using Python's matplotlib library. To further
+    enhance understanding, the studied concept was modeled in
+    Blender, providing a 3D representation of the optical system.
+    This project integrated experimental techniques, computational
+    analysis, and 3D modeling to deepen insights into
+    spectroscopic phenomena.
+}
+
+\cventry
+{The Effects of Photon Energy and Magnetic Fields
+on the Germination/Growth of Plants}
+{Aug 2023 -- Oct 2023}
+{Student-led project under the supervision of a professor
+(LBMI, Lebanese University, Faculty of Sciences II)}
+{%
+    \item Designed and optimized experimental methods for seed
+    germination and growth under controlled conditions. The
+    experiments investigated the effects of blue and red light
+    (individually) on germination, as well as the influence of a
+    magnetic field on the process.
+
+    \par\smallskip
+    The study aimed to explore the potential role of quantum
+    processes in seed germination and growth, providing insights
+    into how environmental factors such as light wavelength and
+    magnetic fields impact these biological mechanisms. This
+    project combined experimental precision with theoretical
+    exploration to advance understanding in biophysics and
+    plant sciences.
+}
+
+% ============================================================
+% Workshops, conferences, and schools
+% ============================================================
+
+\cvsection{WORKSHOPS, CONFERENCES, AND SCHOOLS}
+
+\cvplainentry
+{Physics Without Frontiers:
+Lebanon's First Quantum Technology Workshop}
+{Oct 2025}
+{Abdus Salam International Centre for Theoretical Physics}
+
+\cvplainentry
+{STARS: An Introduction to their Structure and Evolution}
+{Sep 2025}
+{}
+
+\cvplainentry
+{The fourth MPFuS}
+{Summer 2024}
+{Attended the fourth MPFuS summer school for plasma and fusion
+physics held in Gammarth, Tunisia.}
+
+% ============================================================
+% Studied topics
+% ============================================================
+
+\cvsection{STUDIED TOPICS}
+
+\StudyTopics
+{Physics}
+{Particle Physics, Quantum Mechanics, Quantum Field Theory,
+Nuclear Physics, Classical Field Theory, General Relativity,
+Computational Physics, Plasma Physics, Fluid Mechanics,
+Experimental Physics, Electric Circuits, Error Analysis,
+Classical Mechanics, Statistical Mechanics, Electromagnetism,
+Waves And Vibrations, Laser Physics, Thermal Transfer,
+Material Science, Molecular Physics, Medical Imaging Physics.}
+
+\StudyTopics
+{Mathematics}
+{Tensor Analysis, Linear Algebra, Differential Geometry,
+Topology, Group Theory, Complex Analysis, Fourier Series and
+Fourier Transform, Laplace Transform, Ordinary and Partial
+Differential Equations, Numerical Computing and Analysis,
+Real Analysis}
+
+\StudyTopics
+{Space Science}
+{Astronomy, Astrophysics, Planetary Geology}
+
+% ============================================================
+% Online courses
+% ============================================================
+
+\cvsection{ONLINE COURSES}
+
+\textbf{\href{https://www.coursera.org/}{coursera.org}}
+
+\smallskip
+Particle Physics: An Introduction, From the Big Bang to Dark
+Energy, Astro 101: Black Holes, Astronomy: Exploring Time and
+Space, Astrobiology: Exploring Other Worlds, The Science of
+the Solar System, How to Write and Publish a Scientific Paper
+
+% Retained from the original source as commented-out content:
+% Supplemental studies (books):
+% Introduction to Electrodynamics by Griffith,
+% Tensor calculus for physics,
+% A first course in general relativity 2E
+
+% ============================================================
+% Certifications
+% ============================================================
+
+\cvsection{CERTIFICATIONS}
+
+\begin{itemize}
+    \item Raspberry Pi Certification from IEEE
+    \item First Aid Certification from Red Cross
+\end{itemize}
+
+% ============================================================
+% Languages
+% ============================================================
+
+\cvsection{LANGUAGES}
+
+\begin{tabularx}{\linewidth}{%
+    @{}
+    >{\bfseries}l
+    X
+    @{}
+}
+    English & Fluent \\[4pt]
+    Arabic & Native \\[4pt]
+    French & Conversational
+\end{tabularx}
+
+
+\end{document}

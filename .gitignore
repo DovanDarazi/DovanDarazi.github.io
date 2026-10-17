@@ -1,0 +1,9 @@
+.cv-backups/
+.seo-backups/
+__pycache__/
+*.pyc
+*.cv-sync.tmp
+*.seo.tmp
+cv-source/*.aux
+cv-source/*.log
+cv-source/*.out
