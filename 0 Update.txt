@@ -1,0 +1,2 @@
+To update put the new CV.tex and CV.pdf file in the cv-source in this and from this directory run in bash:
+python update_website.py cv-source/CV.tex --pdf cv-source/CV.pdf
